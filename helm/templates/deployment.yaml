@@ -5,6 +5,7 @@ metadata:
   labels:
     app: "{{ .Chart.Name }}"
     env: "{{ .Values.env }}"
+    test: test
 spec:
   replicas: {{ .Values.replicas }}
   strategy:
@@ -20,7 +21,7 @@ spec:
     metadata:
       labels:
         app: "{{ .Chart.Name }}"
-        env: "{{ .Values.env }}"
+        env: "{{ .Values.env }} "
     spec:
       restartPolicy: Always
     {{- with .Values.imagePullSecrets }}
@@ -41,11 +42,13 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 1
-          readinessProbe:
+          readinessProbe: 
             failureThreshold: 30
             httpGet:
               path: /#/app/login
               port: http
+              scheme: HTTP
+              scheme: HTTP
               scheme: HTTP
             periodSeconds: 10
             successThreshold: 1

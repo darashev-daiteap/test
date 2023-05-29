@@ -4,8 +4,8 @@ env: develop
 replicas: 2
 
 service:
-  port: 8080
-  type: NodePort
+port: 8080
+type: NodePort
 
 keycloakServiceName: keycloak
 
@@ -13,7 +13,7 @@ globalStaticIPName: cloudcluster-dev
 
 host: dev.daiteap.com
 
-gkeManagedCertificates: true
+gkeManagedCertificates: true test
 daiteapManagedCertificates: false
 
 imagePullSecrets:
